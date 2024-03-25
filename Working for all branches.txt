@@ -1,0 +1,11 @@
+pipelines:
+  default:
+    - step:
+        name: Sync GitHub Mirror
+        image: alpine/git:latest
+        clone:
+          enabled: false
+        script:
+          - git clone --bare git@bitbucket.org:alliondev/pipeline.git pipeline.git   #bitbucket ssh url <space>  Repository name
+          - cd pipeline.git  #Repository name
+          - git push --mirror git@github.com:damith47/bitbucket-sync.git   #GitHub Repository ssh url
