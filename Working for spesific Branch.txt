@@ -1,12 +1,12 @@
 pipelines:
-  branches:
-    stage:   #Branch name
-      - step:
-          name: Sync stage Branch to GitHub
-          image: alpine/git:latest
-          clone:
-            enabled: false
-          script:
-            - git clone -b stage --single-branch git@bitbucket.org:alliondev/allion-saas.git allion-saas.git    #Bitbucket Repository ssh url <space> Repository name
-            - cd allion-saas.git   #Bitbucket Repository name
-            - git push git@github.com:damith47/bitbucket-sync.git stage  #Github Repository ssh url 
+    branches:
+        dev: #Branch name
+            - step:
+                  name: Sync Dev Branch to GitHub
+                  image: alpine/git:latest
+                  clone:
+                      enabled: false
+                  script:
+                      - git clone -b dev --single-branch git@bitbucket.org:alliondev/allion-saas.git allion-saas-dev.git  #Bitbucket Repository ssh url <space> Repository name
+                      - cd allion-saas-dev.git  #Bitbucket Repository name - branch name
+                      - git push git@github.com:docsforhealth/DFH-SaaS.git dev  #Github Repository ssh url 
