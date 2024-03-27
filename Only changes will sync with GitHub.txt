@@ -1,0 +1,14 @@
+pipelines:
+  branches:
+    dev:
+      - step:
+          name: Sync Dev Branch to GitHub
+          image: alpine/git:latest
+          clone:
+            enabled: false
+          script:
+            - git init
+            - git remote add origin git@bitbucket.org:alliondev/allion-saas.git
+            - git fetch origin dev
+            - git checkout -b dev origin/dev
+            - git push git@github.com:docsforhealth/DFH-SaaS.git dev
