@@ -1,3 +1,5 @@
+This CI/CD pipeline automatically syncs code changes from Bitbucket's dev branch to GitHub's dev branch. It triggers when a commit or push occurs in the Bitbucket repository, ensuring GitHub stays updated with the latest code from Bitbucket. This facilitates seamless integration and deployment.
+
 **Configuration steps**
 
 
